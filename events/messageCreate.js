@@ -12,7 +12,7 @@ module.exports = {
             the text channel of origin with the message author's username, spoiler-tagged message content, and 
             spoiler-tagged attachments.
         */
-        if (message.channel.name === 'spoilers' && message.author.id !== clientId) {
+        if (message.channel.name === 'spoilers' && message.author.id !== (process.env.CLIENTID || clientId)) {
             // Delete original message
             await message.delete();
 
