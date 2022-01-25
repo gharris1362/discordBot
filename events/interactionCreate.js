@@ -6,7 +6,6 @@
 
             
     if (!interaction.isCommand()) return;
-    const { commandName } = interaction;
 
     const command = interaction.client.commands.get(interaction.commandName)
 
