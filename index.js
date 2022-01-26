@@ -1,5 +1,6 @@
+const { optionalRequire } = require('optional-require');
 const { Client, Collection, Intents } = require('discord.js');
-const { token } = require('./config.json')
+const { token } = optionalRequire('./config.json')
 const fs = require('fs');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] }, {allowedMentions: { parse: ['users', 'roles']}});
@@ -24,4 +25,4 @@ for (const file of eventFiles) {
     };
 };
 
-client.login(process.env.TOKEN || token)
+client.login(process.env.TOKEN || token);
