@@ -1,5 +1,4 @@
-const { optionalRequire } = require('optional-require');
-const { clientId } = optionalRequire('../config.json');
+const { clientId } = require('../config.json');
 
 module.exports = {
     name: 'messageCreate',

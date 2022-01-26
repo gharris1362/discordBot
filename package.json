@@ -20,7 +20,6 @@
     "dotenv": "^14.2.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.1",
-    "optional-require": "^1.1.8",
     "ytdl-core": "^4.10.0"
   },
   "engines": {
