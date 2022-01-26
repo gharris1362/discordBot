@@ -1,4 +1,12 @@
-const { clientId } = require('../config.json');
+getConfig = () => {
+    try {
+        return require('../config.json')
+    } catch {
+        return null;
+    }
+}
+
+const config = getConfig();
 
 module.exports = {
     name: 'messageCreate',
@@ -12,7 +20,7 @@ module.exports = {
             the text channel of origin with the message author's username, spoiler-tagged message content, and 
             spoiler-tagged attachments.
         */
-        if (message.channel.name === 'spoilers' && message.author.id !== (process.env.CLIENTID || clientId)) {
+        if (message.channel.name === 'spoilers' && message.author.id !== (process.env.CLIENTID || config.clientId)) {
             // Delete original message
             await message.delete();
 
