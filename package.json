@@ -20,5 +20,9 @@
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.1",
     "ytdl-core": "^4.10.0"
+  },
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.1.2"
   }
 }
