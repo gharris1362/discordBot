@@ -1,7 +1,15 @@
-const { optionalRequire } = require('optional-require');
 const { Client, Collection, Intents } = require('discord.js');
-const { token } = optionalRequire('./config.json')
 const fs = require('fs');
+
+getToken = () => {
+    try {
+        return require('./config.json')
+    } catch {
+        return null;
+    }
+}
+
+const { token } = getToken();
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] }, {allowedMentions: { parse: ['users', 'roles']}});
 
