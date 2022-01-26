@@ -1,5 +1,4 @@
 const { Client, Collection, Intents } = require('discord.js');
-const config = getConfig();
 const fs = require('fs');
 
 getConfig = () => {
@@ -9,6 +8,8 @@ getConfig = () => {
         return null;
     }
 }
+
+const config = getConfig();
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] }, {allowedMentions: { parse: ['users', 'roles']}});
 
