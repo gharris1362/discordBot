@@ -6,6 +6,7 @@
         StreamType,
         createAudioPlayer,
         createAudioResource,
+        getVoiceConnection,
         joinVoiceChannel,
     } = require('@discordjs/voice');
 
@@ -16,17 +17,38 @@
             .addStringOption(option => 
                 option.setName("url")
                     .setDescription("url for song/video")
-                    .setRequired(true)
+                    .setRequired(false)
                 ),
         async execute(interaction) {
             console.log("tried to play song")
-            // await interaction.reply("aint done with this one yet piss baby")
-            
-            const connection = joinVoiceChannel({
-                channelId: interaction.member.voice.channel.id,
-                guildId: interaction.member.guildId,
-                adapterCreator: interaction.member.voice.channel.voiceAdapterCreator
-            })
+            const url = "https://open.spotify.com/track/5vWo4ErhZVUmtVvQvNIWel?si=9951483c051d4296"
 
+
+            // console.log(interaction.user)
+            // console.log(interaction)
+            const connection = joinVoiceChannel({
+                channelId: 656349014425600020,
+                guildId: 656349013997649940,
+                adapterCreator: interaction.member.guild.voiceAdapterCreator
+            });
+            console.log(interaction.guild)
+
+
+            const stream = ytdl(url);
+          
+            const resource = createAudioResource(stream, {inputType: StreamType.Arbitrary});
+            
+            const player = createAudioPlayer();
+            player.play(resource);
+            connection.subscribe(player);
+            
+            player.on(AudioPlayerStatus.Idle, () => connection.destroy);
+            
+            await interaction.reply("aint done with this one yet piss baby");
         },
     };
+ 
+
+
+
+

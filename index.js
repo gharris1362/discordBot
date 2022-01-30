@@ -3,7 +3,7 @@ const { token } = require('./config.json')
 const fs = require('fs');
 
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] }, {allowedMentions: { parse: ['users', 'roles']}});
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES] }, {allowedMentions: { parse: ['users', 'roles']}});
 
 
 //Commands
