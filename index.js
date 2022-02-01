@@ -11,7 +11,7 @@ getConfig = () => {
 
 const config = getConfig();
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] }, {allowedMentions: { parse: ['users', 'roles']}});
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] }, {allowedMentions: { parse: ['users', 'roles']}});
 
 //Commands
 client.commands = new Collection();
